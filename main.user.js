@@ -8,8 +8,8 @@
 // @run-at     document-end
 // @require https://code.jquery.com/jquery-2.1.4.min
 // @require https://rawgit.com/chrishayesmu/dubover/master/settings.js
-// @resource SettingsMenuCss https://rawgit.com/chrishayesmu/dubover/master/css/settingsMenu.css
-// @resource SettingsMenuTemplate https://rawgit.com/chrishayesmu/dubover/master/html/settingsMenu.html
+// @resource SettingsMenuCss https://rawgit.com/chrishayesmu/dubover/users/chrishayesmu/css/settingsMenu.css
+// @resource SettingsMenuTemplate https://rawgit.com/chrishayesmu/dubover/users/chrishayesmu/html/settingsMenu.html
 // @downloadURL https://rawgit.com/chrishayesmu/dubover/master/main.user.js
 // ==/UserScript==
 
@@ -31,7 +31,7 @@ function initialize() {
 function addOptionsMenu() {
 	var $menuTitle = $("<div style='cursor: pointer; position: absolute; top: 0.9em; right: 13em; z-index: 9999'>dubover settings</div>");
 	
-	var menuCss = GM_getResouceText("settingsMenuCss");
+	var menuCss = GM_getResourceText("SettingsMenuCss");
 	injectCssInHead(menuCss);
 	
 	var menuHtml = GM_getResourceText("SettingsMenuTemplate");
