@@ -15,20 +15,17 @@
 }
 
 #duboverSettingsMenuApplyButton {
-	border-right: 1px solid #999;
-	border-top: 1px solid #999;
-	width: 12.5em;
+	width: 11.5em;
 	
 	position: absolute;
-	bottom: 0em; 
-	left: 0;
+	bottom: 0.5em; 
+	left: 0.5em;
 }
 
 #duboverSettingsMenuCancelButton {
-	border-top: 1px solid #999;
-	width: 12.5em;
+	width: 11.5em;
 	
 	position: absolute;
-	bottom: 0em; 
-	right: 0;
+	bottom: 0.5em; 
+	right: 0.5em;
 }
