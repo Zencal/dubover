@@ -1,0 +1,15 @@
+.dubover-settings-menu {
+	background-color: "#111",
+	border: "1px solid #ccc",
+	display: "none",
+	height: "30em",
+	width: "25em",
+	zIndex: 9999,
+	
+	margin: "auto",
+	position: "absolute",
+	bottom: 0,
+	top: 0,
+	left: 0,
+	right: 0
+}

@@ -8,6 +8,8 @@
 // @run-at     document-end
 // @require https://code.jquery.com/jquery-2.1.4.min
 // @require https://rawgit.com/chrishayesmu/dubover/master/settings.js
+// @resource SettingsMenuCss https://rawgit.com/chrishayesmu/dubover/master/css/settingsMenu.css
+// @resource SettingsMenuTemplate https://rawgit.com/chrishayesmu/dubover/master/html/settingsMenu.html
 // @downloadURL https://rawgit.com/chrishayesmu/dubover/master/main.user.js
 // ==/UserScript==
 
@@ -18,9 +20,44 @@ initialize();
  * Main entry point of the userscript.
  */
 function initialize() {
+	addOptionsMenu();
 	observeForImagesInChat();
 }
 
+/**
+ * Creates the options menu's opening anchor, as well as the menu itself,
+ * and attaches appropriate event listeners to each.
+ */
+function addOptionsMenu() {
+	var $menuTitle = $("<div style='cursor: pointer; position: absolute; top: 0.9em; right: 13em; z-index: 9999'>dubover settings</div>");
+	
+	var menuCss = GM_getResouceText("settingsMenuCss");
+	injectCssInHead(menuCss);
+	
+	var menuHtml = GM_getResourceText("SettingsMenuTemplate");
+	var $menu = $(menuHtml);
+	
+	$menuTitle.click(function() {
+		if ($menu.css("display") === "none") {
+			$menu.css("display", "block");
+		}
+		else {
+			$menu.css("display", "none");
+		}
+	});
+	
+	$(document.body).append($menu);
+	$(document.body).append($menuTitle);
+}
+
+function injectCssInHead(css) {
+	$("<style type='text/css'></style>").html(css).appendTo(document.head);
+}
+
+/**
+ * Sets up an observer which watches chat for incoming images,
+ * and replaces them with plain links if configured to do so.
+ */
 function observeForImagesInChat() {
     var imagesInChatObserver = new MutationObserver(function(mutations) {
         if (settings.HideImagesInChat) {
