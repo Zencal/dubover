@@ -4,7 +4,7 @@
 	display: none;
 	height: 30em;
 	width: 25em;
-	zIndex: 9999;
+	z-index: 9999;
 	
 	margin: auto;
 	position: absolute;
